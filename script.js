@@ -102,8 +102,8 @@ camera.position.set(1, 1, 1);
 scene.add(camera);
 
 // Controls
-const controls = new THREE.OrbitControls(camera, canvas);
-controls.enableDamping = true;
+// const controls = new THREE.OrbitControls(camera, canvas);
+// controls.enableDamping = true;
 
 /**
  * Renderer
@@ -218,7 +218,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // Update controls
-  controls.update();
+  // controls.update();
 
   // Update time
   waterMaterial.uniforms.uTime.value = elapsedTime;
