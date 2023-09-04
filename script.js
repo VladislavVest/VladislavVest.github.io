@@ -1,7 +1,7 @@
 /**
  * Debug
  */
-const gui = new dat.GUI({ closed: false, width: 340 });
+const gui = new dat.GUI({ closed: true, width: 230 });
 const bigWavesFolder = gui.addFolder("Large Waves");
 const smallWavesFolder = gui.addFolder("Small Waves");
 const colorFolder = gui.addFolder("Colors");

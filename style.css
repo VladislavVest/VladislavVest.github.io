@@ -43,3 +43,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
   margin-bottom: 1.6rem;
 }
+
+.dg {  
+  z-index: 1000;
+
+}
