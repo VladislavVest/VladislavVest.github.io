@@ -13,6 +13,8 @@ const debugObject = {
   fogColor: "#8e99a2" };
 
 
+
+  
 /**
  * Base
  */
