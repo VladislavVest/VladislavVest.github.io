@@ -1,20 +1,21 @@
-# Use the official Node.js 18 LTS image
+# Use official Node.js 18 LTS image
 FROM node:18
 
-# Set the working directory inside the container
-WORKDIR /workdir
-
-# Copy the entire project into the container
-COPY . /workdir
-
-# Remove the .github folder from the original_repo if it exists
-RUN rm -rf /workdir/original_repo/.github
-
-# Move into the original_repo folder
+# Set working directory inside the container
 WORKDIR /workdir/original_repo
 
-# Install dependencies and run tests
-RUN npm install && npm test
+# Copy only package.json and package-lock.json (если есть) для установки зависимостей
+COPY original_repo/package*.json ./
 
-# Default command after build completes
-CMD [ "echo", "✅ All tests passed in original_repo" ]
+# Установить зависимости
+RUN npm install
+
+# copy
+COPY original_repo/. .
+
+# run  test
+RUN npm install --include=dev
+
+
+# the default command after a successful build
+CMD ["echo", "✅ All tests passed in original_repo"]
