@@ -1,0 +1,4 @@
+Repo_owner: some-user-name
+repo_name: some-repo-name
+commit_ref: main
+Test_run_cmd: npm test
