@@ -1,21 +1,16 @@
-# Use official Node.js 18 LTS image
 FROM node:18
 
 # Set working directory inside the container
-WORKDIR /workdir/original_repo
+WORKDIR /app/original_repo
 
-# Copy only package.json and package-lock.json (если есть) для установки зависимостей
+# Copy only package.json and package-lock.json to leverage Docker cache
 COPY original_repo/package*.json ./
 
-# Установить зависимости
+# Install dependencies
 RUN npm install
 
-# copy
-COPY original_repo/. .
+# Copy the rest of the repository files
+COPY original_repo/ ./
 
-# run  test
-RUN npm install --include=dev
-
-
-# the default command after a successful build
-CMD ["echo", "✅ All tests passed in original_repo"]
+# Run tests using npm test (which runs "tap test" according to your package.json)
+CMD ["npm", "test"]
